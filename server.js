@@ -27,11 +27,9 @@ app.get("/books", (req, res) => {
   res.render("books");
 });
 
-app.get("/rename", (req, res) => {
-  res.render("rename",{
-    books:db.get("books").value()
-  });
-});
+app.get("/rename/:id", (req, res) => {
+  res.render("rename")
+   
 
 app.get("/books/:id",(req,res)=>{
   var id = req.params.id
