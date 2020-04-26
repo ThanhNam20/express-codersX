@@ -27,7 +27,7 @@ app.get("/books", (req, res) => {
   res.render("books");
 });
 
-app.get("/books/:id/rename",(req,res)=>{
+app.get("/books/rename",(req,res)=>{
   res.render('rename');
 })
 
