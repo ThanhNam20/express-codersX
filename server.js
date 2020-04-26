@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/users",(req,res)=>{
+  res.render('users');
+})
+
 app.use('/books',bookRoute);
 
 // listen for requests :)
