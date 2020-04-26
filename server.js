@@ -25,7 +25,12 @@ app.get("/", (req, res) => {
 
 app.get("/books", (req, res) => {
   
+  res.render('books')
 });
+
+app.post("books",(req,res)=>{
+  req.body.id = short
+})
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
