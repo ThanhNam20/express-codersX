@@ -3,4 +3,7 @@ button
 
 p Books list
 each book in books
-  li= book.title
+  li
+    span= book.title
+    button
+      a(href="/books/"+ book.id) Delete

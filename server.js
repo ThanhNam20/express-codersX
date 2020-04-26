@@ -27,6 +27,11 @@ app.get("/books", (req, res) => {
   res.render("books");
 });
 
+app.get("/books/:id",(req,res)=>{
+  var id = req.params.id
+  db.get("books").remove({id: id});
+})
+
 app.post("/books", (req, res) => {
   req.body.id = shortid.generate();
   db.get("books")
