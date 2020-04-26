@@ -28,10 +28,7 @@ app.get("/books", (req, res) => {
 });
 
 app.get("/books/:id/rename",(req,res)=>{
-  var title = req.params.title;
-  var id = req.params.id;
-  db.get("books").find({id: id}).assign({title: title}).write();
-  res.redirect("/")
+  res.render('rename');
 })
 
 app.get("/books/:id",(req,res)=>{
@@ -40,6 +37,10 @@ app.get("/books/:id",(req,res)=>{
   res.redirect('/')
 })
 
+app.post("/books/:id/rename",(req,res)=>{
+  var id = req.params.id
+  var t
+})
 
 app.post("/books", (req, res) => {
   req.body.id = shortid.generate();
