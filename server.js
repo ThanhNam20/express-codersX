@@ -4,6 +4,8 @@ const app = express();
 var db = require("./db");
 
 var bookRoute = require('./routes/book.route.js');
+var userRoute = require('./routes/user.route.js');
+
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -27,9 +29,8 @@ app.get("/users",(req,res)=>{
   });
 })
 
-
-
 app.use('/books',bookRoute);
+app.use('/users',userRoute);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
