@@ -5,9 +5,10 @@ var db = require("../db");
 
 const shortid = require("shortid");
 
-router.get("/", (req, res) => {
-  res.render("books");
-});
+router.get("/",(req,res)=>{
+  res.render('books/create');
+})
+
 
 // Xóa phần tử 
 router.get("/:id",(req,res)=>{
@@ -19,7 +20,7 @@ router.get("/:id",(req,res)=>{
 // Thiết lập biến bookid cho trang rename
 router.get("/:id/rename",(req,res)=>{
   var bookId = req.params.id
-  res.render('rename', {bookId}); // render ra biến bookid truyền vào trang rename
+  res.render('books/rename', {bookId}); // render ra biến bookid truyền vào trang rename
 })
 
 // Đổi tên cho phần tử 

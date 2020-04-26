@@ -17,7 +17,7 @@ router.get("/:id",(req,res)=>{
 
 router.get("/:id/rename",(req,res)=>{
   var userId = req.params.id
-  res.render('rename-User',{userId})
+  res.render('users/rename',{userId})
 })
 
 router.post("/:id/rename",(req,res)=>{
