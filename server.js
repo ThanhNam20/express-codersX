@@ -44,7 +44,7 @@ app.post("/books/:id/rename",(req,res)=>{
   .find({ id: id })
   .assign({ title: title})
   .write()
-  res.redirect("/books")
+  res.redirect("/index")
 })
 
 app.post("/books", (req, res) => {
