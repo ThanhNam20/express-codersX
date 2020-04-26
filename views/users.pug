@@ -1,6 +1,6 @@
 h1 Manage users
 button
-  a(href="/users/create") Create user
+  a(href="users/create") Create user
 span &nbsp;
 p User list
 
@@ -12,7 +12,7 @@ each user in users
       a(href="users/"+user.id) Delete
     span &nbsp
     button
-      a(href="users/rename") Rename User  
+      a(href="users/"+user.id +"/rename") Rename User  
       
 
   

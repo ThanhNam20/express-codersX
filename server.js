@@ -38,8 +38,17 @@ app.get("/users/:id",(req,res)=>{
   res.redirect('/users')
 })
 
-app.get("/users/rename",(req,res)=>{
-  res.render('rename-User')
+app.get("/users/:id/rename",(req,res)=>{
+  var userId = req.params.id
+  res.render('rename-User',{userId})
+})
+
+app.post("/users/:id/rename",(req,res)=>{
+  var id = req.params.id;
+  var name = req.body.name;
+  db.get('users').find({id:id}).assign({ name: name})
+  .write();
+  res.redirect("/users")
 })
 
 app.post("/users/create",(req,res)=>{
