@@ -5,7 +5,7 @@ var db = require("../db");
 
 const shortid = require("shortid");
 
-router.get("/",(req,res)=>{
+router.get("/create",(req,res)=>{
   res.render('books/create');
 })
 
