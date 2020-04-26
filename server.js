@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 
-app.use(express.json()) // for parsing application/json
-app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 const shortid = require("shortid");
 
@@ -14,23 +14,26 @@ const db = low(adapter);
 
 db.defaults({ books: [] }).write();
 
-app.set('view engine', 'pug');
-app.set('views', './views');
+app.set("view engine", "pug");
+app.set("views", "./views");
 
 app.get("/", (req, res) => {
-  res.render('index',{
-    books: db.get('books').value()
-  })
+  res.render("index", {
+    books: db.get("books").value()
+  });
 });
 
 app.get("/books", (req, res) => {
-  
-  res.render('books')
+  res.render("books");
 });
 
-app.post("books",(req,res)=>{
-  req.body.id = short
-})
+app.post("/books", (req, res) => {
+  req.body.id = shortid.generate();
+  db.get("books")
+    .push(req.body)
+    .write();
+  res.redirect("/");
+});
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
