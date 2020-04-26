@@ -8,10 +8,11 @@ each user in users
   li
     span= user.name
     span &nbsp
-    button(type=)
+    button
+      a(href="users/"+user.id) Delete
     span &nbsp
     button
-      a(href="#") Rename User  
+      a(href="users/rename") Rename User  
       
 
   

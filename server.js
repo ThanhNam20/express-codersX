@@ -35,7 +35,11 @@ app.get("/users/create",(req,res)=>{
 app.get("/users/:id",(req,res)=>{
   var id = req.params.id;
   db.get("users").remove({id:id}).write();
-  res.redirect('/')
+  res.redirect('/users')
+})
+
+app.get("/users/rename",(req,res)=>{
+  res.render('rename-User')
 })
 
 app.post("/users/create",(req,res)=>{

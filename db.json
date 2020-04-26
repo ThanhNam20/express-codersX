@@ -1,21 +1,12 @@
 {
   "books": [
     {
-      "title": "Nu",
-      "description": "sách",
-      "id": "fHtMkt_yy"
-    },
-    {
       "title": "Toán rời rạc",
       "description": "sách",
       "id": "SVLbTm0ha"
     }
   ],
   "users": [
-    {
-      "name": "Khuất Thành Nam",
-      "id": "3Bp1BkheI"
-    },
     {
       "name": "Vũ Kiều Trang",
       "id": "Oa88xmMJq"
