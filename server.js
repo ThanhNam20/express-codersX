@@ -3,7 +3,7 @@ const app = express();
 
 var db = require("./db");
 
-var 
+var bookRoute = require('./routes/book.route.js');
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
   });
 });
 
+app.use('/books',bookRoute);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
