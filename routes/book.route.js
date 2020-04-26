@@ -42,4 +42,4 @@ router.post("/", (req, res) => {
   res.redirect("/");
 });
 
-module.export = router;
+module.exports = router;
