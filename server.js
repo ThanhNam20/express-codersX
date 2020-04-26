@@ -17,12 +17,12 @@ db.defaults({ books: [] }).write();
 app.set('view engine', 'pug');
 app.set('views', './views');
 
-// https://expressjs.com/en/starter/basic-routing.html
 app.get("/", (req, res) => {
-  
+  res.render('index',{
+    books: db.get('books').value()
+  })
 });
 
-// send the default array of dreams to the webpage
 app.get("/books", (req, res) => {
   
 });
