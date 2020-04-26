@@ -20,6 +20,8 @@ app.get("/", (req, res) => {
   });
 });
 
+
+
 app.get("/users",(req,res)=>{
   res.render('users',{
     users: db.get("users").value()
@@ -28,6 +30,12 @@ app.get("/users",(req,res)=>{
 
 app.get("/users/create",(req,res)=>{
   res.render('createUser');
+})
+
+app.get("/users/:id",(req,res)=>{
+  var id = req.params.id;
+  db.get("users").remove({id:id}).write();
+  res.redirect('/')
 })
 
 app.post("/users/create",(req,res)=>{
