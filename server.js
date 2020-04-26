@@ -39,7 +39,12 @@ app.get("/books/:id",(req,res)=>{
 
 app.post("/books/:id/rename",(req,res)=>{
   var id = req.params.id
-  var t
+  var title = req.params.title
+  db.get('books')
+  .find({ id: id })
+  .assign({ title: title})
+  .write()
+  res.redirect("/books")
 })
 
 app.post("/books", (req, res) => {
