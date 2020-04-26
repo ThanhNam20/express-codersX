@@ -27,6 +27,12 @@ app.get("/books", (req, res) => {
   res.render("books");
 });
 
+app.get("/rename", (req, res) => {
+  res.render("rename",{
+    books:db.get("books").value()
+  });
+});
+
 app.get("/books/:id",(req,res)=>{
   var id = req.params.id
   db.get("books").remove({id: id}).write();
