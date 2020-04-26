@@ -1,0 +1,15 @@
+button
+  a(href="/books") Add book
+span &nbsp;
+button
+  a(href="/users") Users
+
+p Books list
+each book in books
+  li
+    span= book.title
+    button
+      a(href="/books/" + book.id) Delete
+    span &nbsp;
+    button  
+      a(href="/books/"+book.id +"/rename") Rename
