@@ -6,7 +6,7 @@ var db = require("../db");
 const shortid = require("shortid");
 
 router.get("/create",(req,res)=>{
-  res.render('createUser');
+  res.render('users/createUser');
 })
 
 router.get("/:id",(req,res)=>{
