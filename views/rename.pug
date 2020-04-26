@@ -1,9 +1,5 @@
-form(action="/books/rename",method="POST")
+form(action="/books/" + bookId + "/rename", method="POST")
   p Write the title which you want to change:
   label Title
   input(type="text",name="title")
-    button 
-      a(href="/index") Change
-    
-    
-  
+  button(type="submit") Change
