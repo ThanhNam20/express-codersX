@@ -29,8 +29,10 @@ app.get("/books", (req, res) => {
 
 app.get("/books/:id",(req,res)=>{
   var id = req.params.id
-  db.get("books").remove({id: id});
+  db.get("books").remove({id: id}).write();
+  res.redirect('/')
 })
+
 
 app.post("/books", (req, res) => {
   req.body.id = shortid.generate();
