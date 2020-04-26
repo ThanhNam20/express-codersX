@@ -21,7 +21,21 @@ app.get("/", (req, res) => {
 });
 
 app.get("/users",(req,res)=>{
-  res.render('users');
+  res.render('users',{
+    users: db.get("users").value()
+  });
+})
+
+app.get("/users/create",(req,res)=>{
+  res.render('createUser');
+})
+
+app.post("/users/create",(req,res)=>{
+  req.body.id = shortid.generate();
+  db.get("users")
+    .push(req.body)
+    .write();
+  res.redirect("/users");
 })
 
 app.use('/books',bookRoute);

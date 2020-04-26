@@ -1,5 +1,10 @@
 h1 Manage users
-p Userlist
+button
+  a(href="/users/create") Create user
+span &nbsp;
+p User list
 
+each user in users
+  li= user.name
 
   
