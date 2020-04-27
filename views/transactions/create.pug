@@ -1,2 +1,11 @@
 h1 Create Transactions
 
+form(action = "transactions/create")
+  label( for = "users") Choose user
+  select(id = "users", name ="userId")
+    each user in users
+      option(value = `${user.id}`)
+        span= user.name
+        
+      
+    
