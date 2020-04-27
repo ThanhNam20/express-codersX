@@ -34,10 +34,10 @@ app.get("/transactions/create",(req,res)=>{
   })
 })
 
-app.post("/tranactions/create",(req,res)=>{
+app.post("/transactions/create",(req,res)=>{
   req.body.id = shortid.renerate();
-  db.get("/transactions").push(req.body).write();
-  req.redirect("transactions");
+  db.get("transactions").push(req.body).write();
+  res.redirect("/transactions");
 })
 
 app.use('/books',bookRoute);
