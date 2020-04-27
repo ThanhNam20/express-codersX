@@ -19,3 +19,7 @@ module.exports.postCreate = (req,res)=>{
   db.get("transactions").push(req.body).write();
   res.redirect("/transactions");
 }
+
+module.exports.isComplete = (req,res)=>{
+  
+}
