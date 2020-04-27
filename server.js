@@ -6,12 +6,10 @@ var db = require("./db");
 var bookRoute = require('./routes/book.route.js');
 var userRoute = require('./routes/user.route.js');
 
-
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 const shortid = require("shortid");
-
 
 app.set("view engine", "pug");
 app.set("views", "./views");
@@ -22,12 +20,17 @@ app.get("/", (req, res) => {
   });
 });
 
-
 app.get("/users",(req,res)=>{
-  res.render('users',{
+  res.render('users/index',{
     users: db.get("users").value()
   });
 })
+
+app.get("/transaction",(req,res)=>{
+  res.render("transaction/index");
+})
+
+
 
 app.use('/books',bookRoute);
 app.use('/users',userRoute);
