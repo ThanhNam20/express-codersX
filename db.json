@@ -25,5 +25,11 @@
       "id": "vyMzJAn-x"
     }
   ],
-  "transactions": {}
+  "transactions": [
+    {
+      "userId": "sqlfkRuZZ",
+      "bookId": "PzDuPjDYL",
+      "id": "1lhOoqzF8"
+    }
+  ]
 }

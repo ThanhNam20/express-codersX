@@ -35,7 +35,7 @@ app.get("/transactions/create",(req,res)=>{
 })
 
 app.post("/transactions/create",(req,res)=>{
-  req.body.id = shortid.renerate();
+  req.body.id = shortid.generate();
   db.get("transactions").push(req.body).write();
   res.redirect("/transactions");
 })
