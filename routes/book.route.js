@@ -1,46 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-var db = require("../db");  
+var bookController = require('../controller/book.controller.js');
 
-const shortid = require("shortid");
-
-router.get("/create",(req,res)=>{
-  res.render('books/create');
-})
-
+router.get("/create",bookController.create)
 
 // Xóa phần tử 
-router.get("/:id",(req,res)=>{
-  var id = req.params.id
-  db.get("books").remove({id: id}).write();
-  res.redirect('/')
-})
+router.get("/:id",bookController.detele)
 
 // Thiết lập biến bookid cho trang rename
-router.get("/:id/rename",(req,res)=>{
-  var bookId = req.params.id
-  res.render('books/rename', {bookId}); // render ra biến bookid truyền vào trang rename
-})
+router.get("/:id/rename",bookController.rename)
 
 // Đổi tên cho phần tử 
-router.post("/:id/rename",(req,res)=>{
-  var id = req.params.id
-  var title = req.body.title
-  db.get('books')
-  .find({ id: id })
-  .assign({ title: title})
-  .write()
-  res.redirect("/")
-})
+router.post("/:id/rename",bookController.postRename)
 
 //Thêm phần tử
-router.post("/", (req, res) => {
-  req.body.id = shortid.generate();
-  db.get("books")
-    .push(req.body)
-    .write();
-  res.redirect("/");
-});
+router.post("/",bookController.add);
 
 module.exports = router;
