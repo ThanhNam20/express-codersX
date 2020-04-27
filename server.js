@@ -26,11 +26,16 @@ app.get("/users",(req,res)=>{
   });
 })
 
-app.get("/transaction",(req,res)=>{
-  res.render("transaction/index");
+app.get("/transactions",(req,res)=>{
+  res.render("transactions/index",{
+    transactions: db.get("transactions").value()
+  });
 })
 
-
+app.get("/transactions/create",(req,res)=>{
+  req.body.id = shortid.generate();
+  var userid = 
+})
 
 app.use('/books',bookRoute);
 app.use('/users',userRoute);
