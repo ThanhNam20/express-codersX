@@ -2,4 +2,6 @@ h1 Transactions
 button
   a(href="transactions/create") Create
 p Transactions's list:
-
+  
+  each object in transactions 
+    li= `User:${object.userId} - Book:${object.bookId}`

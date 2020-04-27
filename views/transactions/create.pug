@@ -1,11 +1,20 @@
 h1 Create Transactions
 
-form(action = "transactions/create")
-  label( for = "users") Choose user
+form(action = "transactions/create", method= "POST")
+  label( for = "users") Choose user:
   select(id = "users", name ="userId")
     each user in users
       option(value = `${user.id}`)
         span= user.name
-        
+  br
+  label( for = "books") Choose book:
+  select(id = "books", name ="bookId")
+    each book in books
+      option(value = `${book.id}`)
+        span= book.title
+  br
+  button(type = "submit") Create
+ 
+  
       
     
