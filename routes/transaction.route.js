@@ -9,6 +9,6 @@ router.get("/create",transactionController.create)
 
 router.post("/create",transactionController.postCreate)
 
-
+router.get("/:id/detele",transactionController.isComplete)
 
 module.exports = router;

@@ -34,17 +34,8 @@
     {
       "userId": "sqlfkRuZZ",
       "bookId": "PzDuPjDYL",
-      "id": "1lhOoqzF8"
-    },
-    {
-      "userId": "rCfjTI9XC",
-      "bookId": "GTO-2ieZl",
-      "id": "L5gmGWx0y"
-    },
-    {
-      "userId": "rCfjTI9XC",
-      "bookId": "vyRfk7XHR",
-      "id": "-zhaMYtkO"
+      "isComplete": false,
+      "id": "edZKYUt52"
     }
   ]
 }
