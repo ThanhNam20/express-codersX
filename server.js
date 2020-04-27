@@ -20,11 +20,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/users",(req,res)=>{
-  res.render('users/index',{
-    users: db.get("users").value()
-  });
-})
 
 app.get("/transactions",(req,res)=>{
   res.render("transactions/index",{
@@ -33,8 +28,14 @@ app.get("/transactions",(req,res)=>{
 })
 
 app.get("/transactions/create",(req,res)=>{
-  req.body.id = shortid.generate();
-  var userid = 
+  res.render("transactions/create",{
+    books: db.get('books').value(),
+    users: db.get('users').value()
+  })
+})
+
+app.post("tranactions/create",(req,res)=>{
+  
 })
 
 app.use('/books',bookRoute);

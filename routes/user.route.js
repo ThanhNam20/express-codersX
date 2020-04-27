@@ -5,6 +5,12 @@ var db = require("../db");
 
 const shortid = require("shortid");
 
+router.get("/",(req,res)=>{
+  res.render('users/index',{
+    users: db.get("users").value()
+  });
+})
+
 router.get("/create",(req,res)=>{
   res.render('users/createUser');
 })
