@@ -16,7 +16,7 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 
 app.get("/", (req, res) => {
-  res.render("books/index", {
+  res.render("index", {
     books: db.get("books").value()
   });
 });

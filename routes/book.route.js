@@ -3,6 +3,8 @@ var router = express.Router();
 
 var bookController = require('../controller/book.controller.js');
 
+router.get('/',bookController.index)
+
 router.get("/create",bookController.create)
 
 // Xóa phần tử 
