@@ -4,4 +4,8 @@ button
 p Transactions's list:
 ul  
   each object in transactions
-    li= `User: ${object.userId} - Book: ${object.bookId}`
+    li
+     span= `User: ${object.userId} - Book: ${object.bookId}`
+     span &nbsp
+     button
+       a(href="/transactions/"+object.id) Finish
