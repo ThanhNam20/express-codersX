@@ -14,4 +14,8 @@ module.exports.create = (req,res)=>{
   })
 }
 
-module.exports.postCreate
+module.exports.postCreate = (req,res)=>{
+  req.body.id = shortid.generate();
+  db.get("transactions").push(req.body).write();
+  res.redirect("/transactions");
+}

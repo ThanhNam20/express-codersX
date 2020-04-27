@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-router.get("/",)
+var transactionController = require('../controller/transaction.controller');
 
-router.get("/create",)
+router.get("/",transactionController.index)
 
-router.post("/create",)
+router.get("/create",transactionController.create)
+
+router.post("/create",transactionController.postCreate)
 
 module.exports = router;
