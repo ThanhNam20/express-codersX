@@ -39,6 +39,7 @@ module.exports.postCreate = (req,res)=>{
     res.render('users/createUser',{
       errors: errors
     })
+    return;
   }
   db.get("users")
     .push(req.body)
