@@ -32,6 +32,14 @@ module.exports.postRename = (req,res)=>{
 
 module.exports.postCreate = (req,res)=>{
   req.body.id = shortid.generate();
+  var errors = [];
+  if(!req.body.name ||req.body.name.length > 30)
+    errors.push("Không để trống, Số kí tự không vượt quá 30 !")
+  if(errors.length){
+    res.render('users/createUser',{
+      errors: errors
+    })
+  }
   db.get("users")
     .push(req.body)
     .write();

@@ -1,7 +1,13 @@
-form(method="POST")
-  label User Name
-  input(type="text",name="name")
-  span &nbsp;
-  button(type = "submit") Add 
+extends ../layouts/common
+block content
+  if errors
+    each err in errors
+      .alert.alert-danger= err
+    
+  form(method="POST")
+    label User Name
+    input(type="text",name="name")
+    span &nbsp;
+    button(type = "submit") Add 
   
   
