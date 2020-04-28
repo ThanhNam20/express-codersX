@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
 app.use("/books", bookRoute);
 app.use("/users", userRoute);
 app.use("/transactions", transactionRoute);
+app.use(express.static('public'));
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
