@@ -1,27 +1,14 @@
 extends ./layouts/common
 block content
-
-  h1 Nam's Bookstore
-    
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        a.navbar-brand(href='#') Navbar
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav',       aria-expanded='false', aria-label='Toggle navigation')
-            span.navbar-toggler-icon#navbarNav.collapse.navbar-collapse
-            ul.navbar-nav
-                li.nav-item.active
-                    a.nav-link(href='/books')| Books 
-                        span.sr-only (current)
-                li.nav-item
-                    a.nav-link(href='/users') Users
-                li.nav-item
-                    a.nav-link(href='/transactions') Transactions
-    
-    button
-      a(href="/books") Books
-    span &nbsp;
-    button
-      a(href="/users") Users
-    span &nbsp;
-    button
-      a(href="/transactions") Transactions 
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      a.navbar-brand(href='#') Navbar
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+      #navbarNavAltMarkup.collapse.navbar-collapse
+          .navbar-nav
+              a.nav-item.nav-link.active(href='/books')| Books 
+                  span.sr-only (current)
+              a.nav-item.nav-link(href='/users') Users
+              a.nav-item.nav-link(href='/transactions') Transactions
+     
   
