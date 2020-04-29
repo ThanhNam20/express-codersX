@@ -1,22 +1,39 @@
+extends ../layouts/common
+block content
+  .container
+    h1 Create Transactions
+    form(method = "POST")
+      form-group
+        label( for = "users") Choose user:
+        select.form-control
+          each user in users
+            option(value = `${user.id}`)
+              span= user.name
+
+      form-group
+        label( for = "books") Choose Book:
+        select.form-control
+          each book in books
+            option(value = `${book.id}`)
+              span= user.book
 
 
 
-h1 Create Transactions
 
-form( method= "POST")
-  label( for = "users") Choose user:
-  select(id = "users", name ="userId")
-    each user in users
-      option(value = `${user.id}`)
-        span= user.name
-  br
-  label( for = "books") Choose book:
-  select(id = "books", name ="bookId")
-    each book in books
-      option(value = `${book.id}`)
-        span= book.title
-  br
-  button Create
+      form( method= "POST")
+        label( for = "users") Choose user:
+        select(id = "users", name ="userId")
+          each user in users
+            option(value = `${user.id}`)
+              span= user.name
+        br
+        label( for = "books") Choose book:
+        select(id = "books", name ="bookId")
+          each book in books
+            option(value = `${book.id}`)
+              span= book.title
+        br
+        button Create
  
   
       
