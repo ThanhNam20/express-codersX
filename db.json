@@ -48,28 +48,10 @@
       "id": "0I9RLDUkJ"
     },
     {
-      "userId": [
-        "rCfjTI9XC",
-        "-Q5WWKZ4C"
-      ],
-      "bookId": [
-        "GTO-2ieZl",
-        "vyRfk7XHR"
-      ],
+      "userId": "rCfjTI9XC",
+      "bookId": "GTO-2ieZl",
       "isComplete": false,
-      "id": "vCaAgQdIP"
-    },
-    {
-      "userId": [
-        "rCfjTI9XC",
-        "rCfjTI9XC"
-      ],
-      "bookId": [
-        "GTO-2ieZl",
-        "GTO-2ieZl"
-      ],
-      "isComplete": false,
-      "id": "vgkWqwkb0"
+      "id": "GZth3Kkm-"
     }
   ]
 }
