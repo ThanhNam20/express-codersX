@@ -1,4 +1,4 @@
-const express = require("express");
+      const express = require("express");
 const app = express();
 
 var db = require("./db");
@@ -24,12 +24,10 @@ app.get("/", (req, res) => {
 app.use("/books", bookRoute);
 app.use("/users", userRoute);
 app.use("/transactions", transactionRoute);
-app.use(express.static('public'));
-
-app.get('/', (req, res, next) => {
-    var count = 0
-    res.cookie('cookies',`${count++}`);
+app.use(express.static('publicapp.get('/cookies', (req, res, next) => {
+    res.cookie('user-id', '12345');
     res.send('Hello codersX');
+})nsole.log(req.cookie);
 })
 
 // listen for requests :)
