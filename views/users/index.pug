@@ -1,16 +1,21 @@
-h1 Manage users
-button
-  a(href="users/create") Create user
-span &nbsp;
-p User list
-
-each user in users
-  li
-    span= user.name
-    span &nbsp
-    button
-      a(href="users/"+user.id) Delete
-    span &nbsp
-    button
-      a(href="users/"+user.id +"/rename") Rename User  
+extends ../layouts/common
+block content
+  .container
+    h1 Manage users
+    a.btn.btn-primary(href="/users/create") Create User
+    table.table
+      theat
+        tr
+          th Name
+          th Delete
+          th Rename  
+      each user in users
+        tbody
+          tr
+            td= user.name
+            td
+              a.btn.btn-danger(href="users/" + user.id) Delete
+            td
+              a.btn.btn-secondary(href="users/"+user.id +"/rename") Rename
+          
       

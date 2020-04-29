@@ -1,13 +1,16 @@
 extends ../layouts/common
 block content
-  if errors
-    each err in errors
-      .alert.alert-danger= err
+  .container
+    h1 Create User
+    if errors
+      each err in errors
+        .alert.alert-danger= err
+        
+    form(method="POST")
+        form-group
+          label(for="name") User Name
+          input#title.form-control(name ="name")
+  
+        button.btn.btn-primary.mt-2 Add    
+      
     
-  form(method="POST")
-    label User Name
-    input(type="text",name="name")
-    span &nbsp;
-    button(type = "submit") Add 
-  
-  
