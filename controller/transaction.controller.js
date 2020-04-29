@@ -23,6 +23,9 @@ module.exports.postCreate = (req,res)=>{
 
 module.exports.isComplete = (req,res)=>{
   var id = req.params.id
-  db.get("transactions").remove({id: id}).write();
+  db.get("transactions")
+    .find({ id: id })
+    .assign({ isComplete: true })
+    .write();
   res.redirect('/transactions')
 }
