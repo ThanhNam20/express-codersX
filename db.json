@@ -46,6 +46,30 @@
       "bookId": "vyRfk7XHR",
       "isComplete": true,
       "id": "0I9RLDUkJ"
+    },
+    {
+      "userId": [
+        "rCfjTI9XC",
+        "-Q5WWKZ4C"
+      ],
+      "bookId": [
+        "GTO-2ieZl",
+        "vyRfk7XHR"
+      ],
+      "isComplete": false,
+      "id": "vCaAgQdIP"
+    },
+    {
+      "userId": [
+        "rCfjTI9XC",
+        "rCfjTI9XC"
+      ],
+      "bookId": [
+        "GTO-2ieZl",
+        "GTO-2ieZl"
+      ],
+      "isComplete": false,
+      "id": "vgkWqwkb0"
     }
   ]
 }
