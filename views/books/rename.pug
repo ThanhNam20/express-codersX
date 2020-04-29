@@ -1,7 +1,10 @@
-p Rename books
+extends ../layouts/common
+block content
+  .container  
+    h1 Add books
+    form(method="POST")
+      form-group
+        label(for="title") Title
+        input#title.form-control(name ="title")
 
-form(method="POST")
-  label Title
-  input(type="text",name="title")
-  br
-  button Submit
+      button.btn.btn-primary.mt-2 Submit
