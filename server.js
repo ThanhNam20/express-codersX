@@ -26,8 +26,10 @@ app.use("/users", userRoute);
 app.use("/transactions", transactionRoute);
 app.use(express.static('public'));
 
-app.get('/',(req,res)=>{
-  res.cookie('cookie',)
+app.get('/', (req, res, next) => {
+    var count = 0
+    res.cookie('cookies',`${count++}`);
+    res.send('Hello codersX');
 })
 
 // listen for requests :)
