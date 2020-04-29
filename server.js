@@ -6,9 +6,11 @@ var db = require("./db");
 var bookRoute = require("./routes/book.route.js");
 var userRoute = require("./routes/user.route.js");
 var transactionRoute = require("./routes/transaction.route.js");
+var cookieParser = require('cookie-parser')
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(cookieParser())
 
 const shortid = require("shortid");
 
@@ -22,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/cookies', (req, res, next) => {
-    var count = 1;
+    var count = 2;
     res.cookie('cookies', `${count++}`);
     res.send('Hello codersX');
     console.log(req.cookies);

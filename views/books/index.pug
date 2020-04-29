@@ -1,14 +1,25 @@
-button
-  a(href="/books/create") Add book
-span &nbsp;
-
-p Books list
-each book in books
-  li
-    span= book.title
-    button
-      a(href="books/" + book.id) Delete
-    span &nbsp;
-    button  
-      a(href="books/"+book.id +"/rename") Rename
+extends ../layouts/common
+block content
+  button
+    
+  span &nbsp;
+  
+  .container
+    h1 Books list
+    a.btn.btn-primary(href="/books/create") Add book
+    table.table
+      theat
+        tr
+          th Name
+          th Delete
+          th Rename  
+      each book in books
+        tbody
+          tr
+            td= book.title
+            td
+              a.btn.btn-danger(href="books/" + book.id) Delete
+            td
+              a.btn.btn-secondary(href="books/"+book.id +"/rename") Rename
+          
   
