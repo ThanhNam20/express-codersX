@@ -14,7 +14,7 @@ module.exports.create = (req,res)=>{
 module.exports.detele = (req,res)=>{
   var id = req.params.id
   db.get("books").remove({id: id}).write();
-  res.redirect('/')
+  res.redirect('/books')
 }
 
 module.exports.rename = (req,res)=>{
@@ -29,7 +29,7 @@ module.exports.postRename = (req,res)=>{
   .find({ id: id })
   .assign({ title: title})
   .write()
-  res.redirect("/")
+  res.redirect("/books")
 }
 
 module.exports.add = (req, res) => {
@@ -37,5 +37,5 @@ module.exports.add = (req, res) => {
   db.get("books")
     .push(req.body)
     .write();
-  res.redirect("/");
+  res.redirect("/books");
 }
