@@ -1,11 +1,22 @@
-h1 Transactions
-button
-  a(href="transactions/create") Create
-p Transactions's list:
-ul  
-  each object in transactions
-    li
-     span= `User: ${object.userId} - Book: ${object.bookId}`
-     span &nbsp
-     button
-       a(href="transactions/"+ object.id + "/isComplete") Finish
+extends ../layouts/common
+block content
+  .container
+    h1 Transactions
+    h2 Transactions's list:
+    a.btn.btn-primary(href="transactions/create") Create
+    table.table
+      theat
+        tr
+          th User
+          th Book
+          th Conplete
+          th Finish  
+      each object in transactions
+        tbody
+          tr
+            td= object.userId
+            td= object.bookId
+            td
+              a.btn.btn-success(href="transactions/"+ object.id + "/isComplete") Finish
+            td= object.isComplete
+  
