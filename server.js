@@ -1,4 +1,4 @@
-      const express = require("express");
+const express = require("express");
 const app = express();
 
 var db = require("./db");
@@ -21,16 +21,21 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get('/cookies', (req, res, next) => {
+    var count = 1;
+    res.cookie('cookies', `${count++}`);
+    res.send('Hello codersX');
+    console.log(req.cookies);
+})
+
 app.use("/books", bookRoute);
 app.use("/users", userRoute);
 app.use("/transactions", transactionRoute);
-app.use(express.static('publicapp.get('/cookies', (req, res, next) => {
-    res.cookie('user-id', '12345');
-    res.send('Hello codersX');
-})nsole.log(req.cookie);
-})
+app.use(express.static("public"));
+
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
+
