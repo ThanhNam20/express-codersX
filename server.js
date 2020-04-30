@@ -6,8 +6,9 @@ var db = require("./db");
 var bookRoute = require("./routes/book.route.js");
 var userRoute = require("./routes/user.route.js");
 var transactionRoute = require("./routes/transaction.route.js");
-var authRoute = require("./routes/auth.route.js")
-var cookieParser = require('cookie-parser')
+var authRoute = require("./routes/auth.route.js");
+var authMiddileware = require("./middleware/auth.middleware.js");
+var cookieParser = require('cookie-parser');
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -31,10 +32,10 @@ app.get('/cookies', (req, res, next) => {
     console.log(req.cookies);
 })
 
-app.use("/books", bookRoute);
-app.use("/users", userRoute);
-app.use("/transactions", transactionRoute);
-app.use('/auth',authRoute);
+app.use("/books",authMiddileware.requireAuth, bookRoute);
+app.use("/users",authMiddileware.requireAuth, userRoute);
+app.use("/transactions",authMiddileware.requireAuth, transactionRoute);
+app.use('/auth',authMiddileware.requireAuth, authRoute);
 app.use(express.static("public"));
 
 
