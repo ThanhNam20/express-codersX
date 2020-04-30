@@ -1,0 +1,10 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href='/') Nam's Books
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    .collapse.navbar-collapse#navbarNavAltMarkup
+      .navbar-nav
+        a.nav-item.nav-link(href='/books')| Books 
+        a.nav-item.nav-link(href='/users') Users
+        if user
+          a.nav-item.nav-link(href='/transactions') Transactions
