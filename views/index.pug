@@ -5,10 +5,14 @@ block content
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     .collapse.navbar-collapse#navbarNavAltMarkup
-      .navbar-nav
-        a.nav-item.nav-link(href='/books')| Books 
-        a.nav-item.nav-link(href='/users') Users
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href='/books') Books
+        li.nav-item
+          a.nav-link(href='/users') Users
         if user
-          a.nav-item.nav-link(href='/transactions') Transactions
-     
+          li.nav-item
+            a.nav-link(href='/transactions') Transactions
   
+
+    
