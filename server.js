@@ -35,7 +35,7 @@ app.get('/cookies', (req, res, next) => {
 app.use("/books",authMiddileware.requireAuth, bookRoute);
 app.use("/users",authMiddileware.requireAuth, userRoute);
 app.use("/transactions",authMiddileware.requireAuth, transactionRoute);
-app.use('/auth',authMiddileware.requireAuth, authRoute);
+app.use('/auth', authRoute);
 app.use(express.static("public"));
 
 
