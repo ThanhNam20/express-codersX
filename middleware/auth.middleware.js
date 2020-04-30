@@ -9,11 +9,8 @@ module.exports.requireAuth = (req, res, next) => {
         res.redirect("/auth/login");
         return;
     };
-    if(user.isAdmin === true){
-      res.redirect('')
-    }else{
-      res.locals.display = 'none';
-    }
-    next();
+    
+  res.locals.user = user;
+  next();
 }
 
