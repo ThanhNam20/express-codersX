@@ -25,21 +25,21 @@
       "name": "Saitama",
       "id": "rCfjTI9XC",
       "email": "khuatthanhnam@gmail.com",
-      "password": "123456",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
       "isAdmin": true
     },
     {
       "name": "Nezuko",
       "id": "vyMzJAn-x",
       "email": "nam2@gmail.com",
-      "password": "123456",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
       "isAdmin": false
     },
     {
       "name": "Kirito",
       "id": "-Q5WWKZ4C",
       "email": "nam3@gmail.com",
-      "password": "123456",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
       "isAdmin": false
     }
   ],
