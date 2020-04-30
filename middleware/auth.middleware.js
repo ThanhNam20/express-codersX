@@ -1,6 +1,5 @@
 var db = require('../db');
 module.exports.requireAuth = (req, res, next) => {
-  console.lof(req.coo)
     if (!req.cookies.userId) {
         res.redirect('/auth/login');
         return;
@@ -14,5 +13,5 @@ module.exports.requireAuth = (req, res, next) => {
 }
 
 module.exports.isAdmin = (req,res,next)=>{
-  
+  var isComplete = db.get('users').
 }
