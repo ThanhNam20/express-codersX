@@ -26,3 +26,15 @@ module.exports.postLogin = (req,res)=>{
   res.cookie('userId',user.id);
   res.redirect('/users');
 }
+
+module.exports.isAdmin = (req,res,next)=>{
+  var isAdmin = db.get('users').find({isAdmin:true}).value();
+  if(!isAdmin){
+    res.render('auth/login',{
+      errors:[
+        'You are not the Admin'
+      ]
+    });
+  };
+  next();
+}

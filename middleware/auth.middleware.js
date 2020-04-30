@@ -12,6 +12,3 @@ module.exports.requireAuth = (req, res, next) => {
     next();
 }
 
-module.exports.isAdmin = (req,res,next)=>{
-  var isComplete = db.get('users').
-}
