@@ -15,7 +15,14 @@ module.exports.postLogin = (req,res)=>{
       ]
     });
   }
-  if(!user.password){
-    res
+  if(user.password !== password){
+    res.render("auth/login",{
+      errors:[
+        'wrong password!'
+      ]
+    });
+    return;
   }
+  res.cookie('userId',user.id);
+  res.redirect('/users');
 }
