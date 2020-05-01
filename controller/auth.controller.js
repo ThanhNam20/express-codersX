@@ -1,8 +1,30 @@
 var db = require("../db");
+const shortid = require("shortid");
 var md5= require("md5");
 const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
+module.exports.register = (req,res,next)=>{
+  res.render('auth/register');
+}
 
+module.exports.saveRegister = (req,res,next)=>{
+  bcrypt.hash(req.body.passwordsignup, saltRounds, function (err, hash) {
+   db.User.create({
+   name: req.body.name,
+   email: req.body.email,
+   password: hash
+   }).then(function(data) {
+    if (data) {
+    res.redirect('/home');
+    }
+  });
+ });
+});
+  var name = req.body.name;
+  var email = req.body.email;
+  var password = req.body.password;
+}
 
 
 module.exports.login = (req,res)=>{
