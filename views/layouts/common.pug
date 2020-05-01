@@ -13,7 +13,8 @@ html
         .navbar-nav
           a.nav-item.nav-link(href='/books')| Books 
           a.nav-item.nav-link(href='/users') Users
-          a.nav-item.nav-link(href='/transactions') Transactions
-    p= user.name
+          if user
+            a.nav-item.nav-link(href='/transactions') Transactions
+      
     .container.pt-5      
       block content
