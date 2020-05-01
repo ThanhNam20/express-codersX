@@ -41,6 +41,13 @@
       "email": "khuatthanhnam@gmail.com",
       "password": "$2b$10$3SW/eeeOLPFDbHJ6mUE3re6CWjADA327NqE2veOtvfOlN3EvtdyVq",
       "isAdmin": false
+    },
+    {
+      "id": "UYprKGnwe",
+      "name": "Kihime",
+      "email": "nam3@gmail.com",
+      "password": "$2b$10$SgXtkdRFQZwwIzN8b61JxuK1e8Za9bRjnuiqAyXuYmEIEAJqCzTRK",
+      "isAdmin": false
     }
   ],
   "transactions": [

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 var db = require("./db");
+const shortid = require("shortid");
 
 var bookRoute = require("./routes/book.route.js");
 var userRoute = require("./routes/user.route.js");
@@ -12,9 +13,7 @@ var cookieParser = require("cookie-parser");
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(cookieParser());
-
-const shortid = require("shortid");
+app.use(cookieParser('abcd123123'));
 
 app.set("view engine", "pug");
 app.set("views", "./views");
