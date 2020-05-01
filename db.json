@@ -22,13 +22,6 @@
   ],
   "users": [
     {
-      "name": "Saitama",
-      "id": "rCfjTI9XC",
-      "email": "khuatthanhnam@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e",
-      "isAdmin": true
-    },
-    {
       "id": "_MrCrKhbq",
       "name": "Nam",
       "email": "nam1@gmail.com",
@@ -45,22 +38,16 @@
   ],
   "transactions": [
     {
-      "userId": "sqlfkRuZZ",
-      "bookId": "PzDuPjDYL",
-      "isComplete": true,
-      "id": "edZKYUt52"
-    },
-    {
-      "userId": "_We8oGfOo",
+      "userId": "Lb44tUFAN",
       "bookId": "vyRfk7XHR",
-      "isComplete": true,
-      "id": "0I9RLDUkJ"
+      "isComplete": false,
+      "id": "-CrSE7WDP"
     },
     {
-      "userId": "rCfjTI9XC",
+      "userId": "Lb44tUFAN",
       "bookId": "GTO-2ieZl",
       "isComplete": false,
-      "id": "GZth3Kkm-"
+      "id": "FGoU9YASo"
     }
   ]
 }
