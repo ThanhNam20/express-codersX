@@ -34,6 +34,13 @@
       "email": "nam2@gmail.com",
       "password": "$2b$10$4S/1yh.itkyySfxPdz5Hu.IislQ/WPGaqsE9Qmg4RKVpKwmVVd/XS",
       "isAdmin": false
+    },
+    {
+      "id": "3_iNgTpu9",
+      "name": "Thanh",
+      "email": "khuatthanhnam@gmail.com",
+      "password": "$2b$10$3SW/eeeOLPFDbHJ6mUE3re6CWjADA327NqE2veOtvfOlN3EvtdyVq",
+      "isAdmin": false
     }
   ],
   "transactions": [

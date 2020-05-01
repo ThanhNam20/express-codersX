@@ -15,6 +15,7 @@ html
           a.nav-item.nav-link(href='/users') Users
           if user
             a.nav-item.nav-link(href='/transactions') Transactions
-      
+          else 
+            a.nav-item.nav-link.d-none(href='/transactions') Transactions
     .container.pt-5      
       block content
