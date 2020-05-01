@@ -8,11 +8,11 @@ var userRoute = require("./routes/user.route.js");
 var transactionRoute = require("./routes/transaction.route.js");
 var authRoute = require("./routes/auth.route.js");
 var authMiddileware = require("./middleware/auth.middleware.js");
-var cookieParser = require('cookie-parser');
+var cookieParser = require("cookie-parser");
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(cookieParser())
+app.use(cookieParser());
 
 const shortid = require("shortid");
 
@@ -25,22 +25,20 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get('/cookies', (req, res, next) => {
-    var count = 2;
-    res.cookie('cookies', `${count++}`);
-    res.send('Hello codersX');
-    console.log(req.cookies);
-})
-
-app.use("/books",authMiddileware.requireAuth, bookRoute);
-app.use("/users",authMiddileware.requireAuth, userRoute);
-app.use("/transactions",authMiddileware.requireAuth, transactionRoute);
-app.use('/auth', authRoute);
+app.get("/cookies", (req, res, next) => {
+  var count = 2;
+  res.cookie("cookies", `${count++}`);
+  res.send("Hello codersX");
+  console.log(req.cookies);
+});
+  
+app.use("/books", authMiddileware.requireAuth, bookRoute);
+app.use("/users", authMiddileware.requireAuth, userRoute);
+app.use("/transactions", authMiddileware.requireAuth, transactionRoute);
+app.use("/auth", authRoute);
 app.use(express.static("public"));
-
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
-
