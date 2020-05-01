@@ -12,15 +12,13 @@ module.exports.saveRegister = (req, res, next) => {
   req.body.id = shortid.generate();
   bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
     db.get("users").push({
+      id: req.body.id, 
       name: req.body.name,
       email: req.body.email,
       password: hash,
       isAdmin: false
-    }).then(function(data) {
-      if (data) {
-        res.redirect("/auth/login");
-      }
-    });
+    }).write();
+    res.redirect('/auth/login');
   });
 };
 

@@ -27,6 +27,20 @@
       "email": "khuatthanhnam@gmail.com",
       "password": "e10adc3949ba59abbe56e057f20f883e",
       "isAdmin": true
+    },
+    {
+      "id": "_MrCrKhbq",
+      "name": "Nam",
+      "email": "nam1@gmail.com",
+      "password": "$2b$10$QlI/GfGlr7cQhhlrcSfybeUzz75N2s40JzjGtR1c.Q.76k6.EU3Ju",
+      "isAdmin": false
+    },
+    {
+      "id": "Lb44tUFAN",
+      "name": "Nam",
+      "email": "nam2@gmail.com",
+      "password": "$2b$10$4S/1yh.itkyySfxPdz5Hu.IislQ/WPGaqsE9Qmg4RKVpKwmVVd/XS",
+      "isAdmin": false
     }
   ],
   "transactions": [
