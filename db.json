@@ -22,11 +22,19 @@
   ],
   "users": [
     {
-      "wrongLoginCount": 2,
+      "wrongLoginCount": 0,
       "id": "8Jn6EeqKo",
       "name": "Nam",
       "email": "nam1@gmail.com",
       "password": "$2b$10$1vj4WUtnsrQWfvRHKxMogOsGbS9Boyr3k3iAu4dIsluDmbwxDsVCy",
+      "isAdmin": false
+    },
+    {
+      "wrongLoginCount": 3,
+      "id": "2VSQfsxhh",
+      "name": "Khuat",
+      "email": "thanhnam2462000@gmail.com",
+      "password": "$2b$10$fCRhoJJuFGnpCLBpwga2cu/m5xb2YZz3CO/m7gde2FIrV8jUVQrLu",
       "isAdmin": false
     }
   ],

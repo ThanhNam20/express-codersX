@@ -56,15 +56,19 @@ module.exports.postLogin = (req, res) => {
         if (wrongLoginCount >= 2) {
           sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
-            to: "thanhnam2462000@gmail.com",
+            to: user.email,
             from: "khuatthanhnam@gmail.com",
-            subject: "Sending with Twilio SendGrid is Fun",
-            text: "and easy to do anywhere, even with Node.js",
-            html: "<strong>and easy to do anywhere, even with Node.js</strong>"
+            subject: "Cảnh báo đăng nhập !! ",
+            text: "Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!",
+            html: "<strong>Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!</strong>"
           };
           //ES6
           sgMail.send(msg).then(
-            () => {},
+            () => {
+              module.exports.handleError =(req,res)=>{
+                res.render('auth/error');
+              }
+            },
             error => {
               console.error(error);
 
