@@ -22,24 +22,11 @@
   ],
   "users": [
     {
-      "id": "Lb44tUFAN",
-      "name": "Kanjro",
-      "email": "nam2@gmail.com",
-      "password": "$2b$10$4S/1yh.itkyySfxPdz5Hu.IislQ/WPGaqsE9Qmg4RKVpKwmVVd/XS",
-      "isAdmin": false
-    },
-    {
-      "id": "3_iNgTpu9",
-      "name": "Thanh",
-      "email": "khuatthanhnam@gmail.com",
-      "password": "$2b$10$3SW/eeeOLPFDbHJ6mUE3re6CWjADA327NqE2veOtvfOlN3EvtdyVq",
-      "isAdmin": false
-    },
-    {
-      "id": "ncDGgDPXC",
-      "name": "Vladimir Putin",
-      "email": "thanhnam2462000@gmail.com",
-      "password": "$2b$10$8zktOLqwMREhGdxbRWYk1eko7OUNRkse9o8EHY0M8GqX/E13N50Sq",
+      "wrongLoginCount": 2,
+      "id": "8Jn6EeqKo",
+      "name": "Nam",
+      "email": "nam1@gmail.com",
+      "password": "$2b$10$1vj4WUtnsrQWfvRHKxMogOsGbS9Boyr3k3iAu4dIsluDmbwxDsVCy",
       "isAdmin": false
     }
   ],
