@@ -30,6 +30,27 @@ app.get("/cookies", (req, res, next) => {
   res.send("Hello codersX");
   console.log(req.cookies);
 });
+
+//SENDGRID
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_KEY);
+const msg = {
+  to: 'thanhnam2462000@gmail.com',
+  from: 'khuatthanhnam@gmail.com',
+  subject: 'Sending with Twilio SendGrid is Fun',
+  text: 'and easy to do anywhere, even with Node.js',
+  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+};
+
+sgMail
+  .send(msg)
+  .then(() => {}, error => {
+    console.error(error);
+ 
+    if (error.response) {
+      console.error(error.response.body)
+    }
+  });
   
 app.use("/books", authMiddileware.requireAuth, bookRoute);
 app.use("/users", authMiddileware.requireAuth, userRoute);
