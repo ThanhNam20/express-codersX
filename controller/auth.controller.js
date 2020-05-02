@@ -45,7 +45,6 @@ module.exports.postLogin = (req, res) => {
     bcrypt.compare(req.body.password, user.password, function(err, result) {
       if (result == false) {
         wrongLoginCount++;
-        console.log(wrongLoginCount);
         db.get("users")
           .find({ id: user.id })
           .assign({ wrongLoginCount: wrongLoginCount })
@@ -59,16 +58,14 @@ module.exports.postLogin = (req, res) => {
             to: user.email,
             from: "khuatthanhnam@gmail.com",
             subject: "Cảnh báo đăng nhập !! ",
-            text: "Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!",
-            html: "<strong>Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!</strong>"
+            text:
+              "Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!",
+            html:
+              "<strong>Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!</strong>"
           };
           //ES6
           sgMail.send(msg).then(
-            () => {
-              module.exports.handleError =(req,res)=>{
-                res.render('auth/error');
-              }
-            },
+            () => {},
             error => {
               console.error(error);
 
