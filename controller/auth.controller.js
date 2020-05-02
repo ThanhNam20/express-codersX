@@ -52,7 +52,7 @@ module.exports.postLogin = (req, res) => {
         res.render("auth/login", {
           errors: ["Wrong password!"]
         });
-        if (wrongLoginCount >= 2) {
+        if (wrongLoginCount >= 3) {
           sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
             to: user.email,
