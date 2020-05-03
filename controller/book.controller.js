@@ -10,7 +10,8 @@ module.exports.index = (req,res)=>{
   var end = page * perPage;
   res.render('books',{
     books: db.get('books').value().slice(start, end),
-    numberPage: numberPage
+    numberPage: numberPage,
+    page: page
   });
 }
 
