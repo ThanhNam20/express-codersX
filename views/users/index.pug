@@ -11,7 +11,7 @@ block content
           th Avatar
           th Name
           th Delete
-          th Rename  
+          th Update  
       each user in users
         tbody
           tr
@@ -21,6 +21,6 @@ block content
             td
               a.btn.btn-danger(href="users/" + user.id) Delete
             td
-              a.btn.btn-secondary(href="users/"+user.id +"/rename") Rename
+              a.btn.btn-secondary(href="users/"+user.id +"/rename") Update
           
       
