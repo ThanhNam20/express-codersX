@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer'); 
 
 var userController = require('../controller/user.controller.js')
 
