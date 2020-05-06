@@ -10,6 +10,7 @@ module.exports.register = (req, res, next) => {
 
 module.exports.saveRegister = (req, res, next) => {
   req.body.id = shortid.generate();
+  req.body.avatarUrl = `https://ui-avatars.com/api/?name=${user.name}`
   bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
     db.get("users")
       .push({
