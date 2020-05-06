@@ -544,6 +544,15 @@
       "email": "khuatthanhnam@gmail.com",
       "password": "$2b$10$TnVWfZu0zxmKgfgCf2J2ZOalq.ORwCT.kGE1Gsm2ws9IXuYisAts6",
       "isAdmin": true
+    },
+    {
+      "wrongLoginCount": 0,
+      "id": "KS5b31iBK",
+      "name": "Thanh Nam",
+      "email": "nam3@gmail.com",
+      "password": "$2b$10$oh1nvH41wsELqv8DhQbgXu0mqL2wr9sTpzcihonmbVY6iAkmdMxpy",
+      "isAdmin": false,
+      "avatarUrl": "https://ui-avatars.com/api/?name= user.name "
     }
   ],
   "transactions": [
