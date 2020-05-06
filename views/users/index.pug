@@ -16,7 +16,7 @@ block content
         tbody
           tr
             td
-              img(src= user.avatarUrl)
+              img(src= user.avatarUrl+user.randomNum )
             td= user.name
             td
               a.btn.btn-danger(href="users/" + user.id) Delete

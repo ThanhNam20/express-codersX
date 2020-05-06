@@ -547,21 +547,13 @@
     },
     {
       "wrongLoginCount": 0,
-      "id": "KS5b31iBK",
-      "name": "Thanh Nam",
+      "id": "BU1gxyCGp",
+      "name": "Nam",
       "email": "nam3@gmail.com",
-      "password": "$2b$10$oh1nvH41wsELqv8DhQbgXu0mqL2wr9sTpzcihonmbVY6iAkmdMxpy",
+      "password": "$2b$10$1LkNSeS36BZaYqmW3P3V6uyS/BoTOhPC8vzoX5jjH38rkuJcCYOWC",
       "isAdmin": false,
-      "avatarUrl": "https://ui-avatars.com/api/?name= user.name "
-    },
-    {
-      "wrongLoginCount": 0,
-      "id": "z-V5XX8UM",
-      "name": "Ngoc Cac",
-      "email": "nam4@gmail.com",
-      "password": "$2b$10$ugiuCagW67rWOz3YdIjcJeoBNoQZwnOMAvLlFyhs4ts2q5qJzdmTS",
-      "isAdmin": false,
-      "avatarUrl": "https://ui-avatars.com/api/?name= `${user.name}` "
+      "avatarUrl": "https://api.adorable.io/avatars/",
+      "randomNum": 568
     }
   ],
   "transactions": [

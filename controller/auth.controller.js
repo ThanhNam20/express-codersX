@@ -10,6 +10,7 @@ module.exports.register = (req, res, next) => {
 
 module.exports.saveRegister = (req, res, next) => {
   req.body.id = shortid.generate();
+  req.body.randomNum = Math.floor(Math.random() * 1000);
   bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
     db.get("users")
       .push({
@@ -19,7 +20,8 @@ module.exports.saveRegister = (req, res, next) => {
         email: req.body.email,
         password: hash,
         isAdmin: false,
-        avatarUrl:'https://ui-avatars.com/api/?name= `${user.name}` '
+        avatarUrl:'https://api.adorable.io/avatars/',
+        randomNum : req.body.randomNum
       })
       .write();
     res.redirect("/auth/login");
