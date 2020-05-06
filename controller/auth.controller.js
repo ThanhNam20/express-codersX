@@ -19,7 +19,7 @@ module.exports.saveRegister = (req, res, next) => {
         email: req.body.email,
         password: hash,
         isAdmin: false,
-        avatarUrl:'https://ui-avatars.com/api/?name= user.name '
+        avatarUrl:'https://ui-avatars.com/api/?name= `${user.name}` '
       })
       .write();
     res.redirect("/auth/login");

@@ -16,7 +16,7 @@ block content
         tbody
           tr
             td
-              img(src=`https://ui-avatars.com/api/?name=${user.name}`)
+              img(src= user.avatarUrl)
             td= user.name
             td
               a.btn.btn-danger(href="users/" + user.id) Delete

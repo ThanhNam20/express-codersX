@@ -553,6 +553,15 @@
       "password": "$2b$10$oh1nvH41wsELqv8DhQbgXu0mqL2wr9sTpzcihonmbVY6iAkmdMxpy",
       "isAdmin": false,
       "avatarUrl": "https://ui-avatars.com/api/?name= user.name "
+    },
+    {
+      "wrongLoginCount": 0,
+      "id": "z-V5XX8UM",
+      "name": "Ngoc Cac",
+      "email": "nam4@gmail.com",
+      "password": "$2b$10$ugiuCagW67rWOz3YdIjcJeoBNoQZwnOMAvLlFyhs4ts2q5qJzdmTS",
+      "isAdmin": false,
+      "avatarUrl": "https://ui-avatars.com/api/?name= `${user.name}` "
     }
   ],
   "transactions": [
