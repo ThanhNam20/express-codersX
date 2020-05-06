@@ -536,6 +536,14 @@
       "email": "thanhnam2462000@gmail.com",
       "password": "$2b$10$fCRhoJJuFGnpCLBpwga2cu/m5xb2YZz3CO/m7gde2FIrV8jUVQrLu",
       "isAdmin": false
+    },
+    {
+      "wrongLoginCount": 0,
+      "id": "5zlpsRPAk",
+      "name": "Nam",
+      "email": "khuatthanhnam@gmail.com",
+      "password": "$2b$10$TnVWfZu0zxmKgfgCf2J2ZOalq.ORwCT.kGE1Gsm2ws9IXuYisAts6",
+      "isAdmin": false
     }
   ],
   "transactions": [
