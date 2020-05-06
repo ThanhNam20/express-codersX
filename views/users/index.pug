@@ -8,12 +8,15 @@ block content
     table.table
       theat
         tr
+          th Avatar
           th Name
           th Delete
           th Rename  
       each user in users
         tbody
           tr
+            td
+              img(src='https://api.adorable.io/avatars/87/abott@adorable.io.png')
             td= user.name
             td
               a.btn.btn-danger(href="users/" + user.id) Delete

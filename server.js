@@ -9,6 +9,7 @@ var userRoute = require("./routes/user.route.js");
 var transactionRoute = require("./routes/transaction.route.js");
 var authRoute = require("./routes/auth.route.js");
 var authMiddileware = require("./middleware/auth.middleware.js");
+var adminMiddleware = require("./middleware/isAdmin.middleware.js");
 var cookieParser = require("cookie-parser");
 
 app.use(express.json()); // for parsing application/json
@@ -34,7 +35,7 @@ app.get("/cookies", (req, res, next) => {
 app.use("/books", authMiddileware.requireAuth, bookRoute);
 app.use("/users", authMiddileware.requireAuth, userRoute);
 app.use("/transactions", authMiddileware.requireAuth, transactionRoute);
-app.use("/auth", authRoute);
+app.use("/auth", authRoute, adminMiddleware.isAdmin);
 app.use(express.static("public"));
 
 // listen for requests :)
