@@ -28,15 +28,18 @@ module.exports.postRename = (req, res) => {
   var id = req.params.id;
   var name = req.body.name;
   req.body.avatarUrl = req.file.path
-    .split("\\")
+    .split("/")
     .slice(1)
-    .join("\\");
+    .join("/");
   db.get("users")
     .find({ id: id })
     .assign({ name: name, avatarUrl: req.body.avatarUrl })
     .write();
-  db.unset()
-  .write()
+  var user = db
+    .get("users")
+    .find({ id: id })
+    .value();
+  db.unset(user, 'user.randomNum').write();
   res.redirect("/users");
 };
 
