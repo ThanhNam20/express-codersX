@@ -32,7 +32,7 @@ app.get("/cookies", (req, res, next) => {
   console.log(req.cookies);
 });
   
-app.use("/books", authMiddileware.requireAuth, bookRoute);
+app.use("/books", bookRoute);
 app.use("/users", authMiddileware.requireAuth, userRoute);
 app.use("/transactions", authMiddileware.requireAuth, transactionRoute);
 app.use("/auth", authRoute, adminMiddleware.isAdmin);
