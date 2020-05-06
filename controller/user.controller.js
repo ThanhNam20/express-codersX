@@ -35,11 +35,6 @@ module.exports.postRename = (req, res) => {
     .find({ id: id })
     .assign({ name: name, avatarUrl: req.body.avatarUrl })
     .write();
-  var user = db
-    .get("users")
-    .find({ id: id })
-    .value();
-  db.unset(user, 'user.randomNum').write();
   res.redirect("/users");
 };
 

@@ -20,8 +20,7 @@ module.exports.saveRegister = (req, res, next) => {
         email: req.body.email,
         password: hash,
         isAdmin: false,
-        avatarUrl:'https://api.adorable.io/avatars/',
-        randomNum : req.body.randomNum
+        avatarUrl:'https://api.adorable.io/avatars/100',
       })
       .write();
     res.redirect("/auth/login");
