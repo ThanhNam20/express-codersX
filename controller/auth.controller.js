@@ -36,13 +36,14 @@ module.exports.postLogin = (req, res) => {
     .get("users")
     .find({ email: email })
     .value();
-  var wrongLoginCount = user.wrongLoginCount;
+
   if (!user) {
     res.render("auth/login", {
       errors: ["User is not found!"]
     });
   } else {
     bcrypt.compare(req.body.password, user.password, function(err, result) {
+      var wrongLoginCount = user.wrongLoginCount;
       if (result == false) {
         wrongLoginCount++;
         db.get("users")
