@@ -543,7 +543,7 @@
       "name": "Nam",
       "email": "khuatthanhnam@gmail.com",
       "password": "$2b$10$TnVWfZu0zxmKgfgCf2J2ZOalq.ORwCT.kGE1Gsm2ws9IXuYisAts6",
-      "isAdmin": false
+      "isAdmin": true
     }
   ],
   "transactions": [
