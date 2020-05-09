@@ -1,7 +1,25 @@
-var db = require("../db"); 
+var db = require("../db");
 
+module.exports.addToCart = (req, res, next) => {
+  var bookId = req.params.bookId;
+  var sessionId = req.signedCookies.sessionId;
 
-module.exports.addToCart = (req,res,next)=>{
-  var productId = req.params.productId;
+  if (!sessionId) {
+    res.redirect("/books");
+    return;
+  }
+
+  var count = db
+    .get("sessions")
+    .find({ id: sessionId })
+    .get("cart." + bookId, 0)
+    .value();
   
-}
+  db.get("sessions")
+    .find({
+      id: sessionId
+    })
+    .set("cart." + productId, count + 1)
+    .write();
+  res.redirect("/books")
+};
