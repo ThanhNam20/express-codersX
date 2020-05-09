@@ -4,7 +4,7 @@ html
     script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js" )
     script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js")
   body
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
       a.navbar-brand(href='/') Nam's Books
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
@@ -12,6 +12,7 @@ html
         .navbar-nav
           a.nav-item.nav-link(href='/books')| Books 
           a.nav-item.nav-link(href='/users') Users
+          a.nav-item.nav-link(href='/books/newTrans') 
           if user && user.isAdmin
             a.nav-item.nav-link(href='/transactions') Transactions
           else 

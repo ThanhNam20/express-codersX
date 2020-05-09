@@ -3,6 +3,7 @@ block content
   .container
     h1 Books list
     a.btn.btn-primary(href="/books/create") Add book
+    
     table.table
       theat
         tr
@@ -18,7 +19,7 @@ block content
             td
               a.btn.btn-secondary(href="books/"+book.id +"/rename") Rename
             td  
-              a.btn.btn-primary(href="books/"+book.id +"/add") Rent
+              a.btn.btn-primary(href="books/"+book.id +"/add") Add to card
     
     nav(aria-label='Page navigation example')
       ul.pagination.justify-content-center
