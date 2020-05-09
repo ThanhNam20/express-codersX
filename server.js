@@ -10,7 +10,10 @@ var transactionRoute = require("./routes/transaction.route.js");
 var authRoute = require("./routes/auth.route.js");
 var authMiddileware = require("./middleware/auth.middleware.js");
 var adminMiddleware = require("./middleware/isAdmin.middleware.js");
+var sessionMiddleware = require("./middleware/session.middleware.js");
+
 var cookieParser = require("cookie-parser");
+
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -36,6 +39,8 @@ app.use("/books", bookRoute);
 app.use("/users", authMiddileware.requireAuth, userRoute);
 app.use("/transactions", authMiddileware.requireAuth, transactionRoute);
 app.use("/auth", authRoute, adminMiddleware.isAdmin);
+app.use("/cart",sessionMiddleware);
+
 app.use(express.static("public"));
 
 // listen for requests :)
