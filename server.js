@@ -18,6 +18,7 @@ var cookieParser = require("cookie-parser");
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser('abcd123123'));
+app.use(sessionMiddleware);
 
 app.set("view engine", "pug");
 app.set("views", "./views");
@@ -39,7 +40,7 @@ app.use("/books", bookRoute);
 app.use("/users", authMiddileware.requireAuth, userRoute);
 app.use("/transactions", authMiddileware.requireAuth, transactionRoute);
 app.use("/auth", authRoute, adminMiddleware.isAdmin);
-app.use("/cart",sessionMiddleware);
+
 
 app.use(express.static("public"));
 
