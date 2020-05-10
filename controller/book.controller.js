@@ -74,7 +74,11 @@ module.exports.addToCart = (req, res, next) => {
     })
     .set("cart." + bookId, count + 1)
     .write();
+  
+  res.locals.bookId = bookId;
   res.redirect("/books");
 };
+
+
 
 
