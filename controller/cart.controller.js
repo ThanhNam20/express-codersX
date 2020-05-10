@@ -8,6 +8,7 @@ module.exports.newTrans = (req,res,next)=>{
   db.get('transactions').push({
     id: id,
     userid: userId,
+    isComplete: false,
     
   })
 }
