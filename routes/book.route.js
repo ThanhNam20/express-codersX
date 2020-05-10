@@ -21,6 +21,5 @@ router.post("/", bookController.add);
 //Add to cart
 router.get("/:id/add", bookController.addToCart);
 
-router.get('/newTrans',bookController.newTrans);
 
 module.exports = router;

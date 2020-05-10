@@ -77,9 +77,4 @@ module.exports.addToCart = (req, res, next) => {
   res.redirect("/books");
 };
 
-module.exports.newTrans = (req,res,next)=>{
-  var userId = req.signedCookies.userId;
-  if(!userId){
-    res.redirect("/auth/login");
-  }
-}
+
