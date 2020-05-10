@@ -10,6 +10,7 @@ module.exports.newTrans = (req,res,next)=>{
     id: id,
     userid: userId,
     isComplete: false,
-    bookId : _.keys({bookId}),
-  })
+    bookId : Object.keys(bookId)
+  }).write();
+  res.redirect('/books');
 }
