@@ -1,20 +1,12 @@
 var db = require("../db");
 const shortid = require("shortid");
+var Book = require("../models/book.model");
 
 module.exports.index = (req, res) => {
-  var page = parseInt(req.query.page) || 1;
-  var perPage = 10;
-  var numberPage = Math.ceil(db.get("books").value().length / perPage);
-
-  var start = (page - 1) * perPage;
-  var end = page * perPage;
-  res.render("books", {
-    books: db
-      .get("books")
-      .value()
-      .slice(start, end),
-    numberPage: numberPage,
-    page: page
+  Book.find().then(function(books) {
+    res.render("books/index", {
+      books: books
+    });
   });
 };
 
@@ -74,11 +66,7 @@ module.exports.addToCart = (req, res, next) => {
     })
     .set("cart." + bookId, count + 1)
     .write();
-  
+
   res.locals.bookId = bookId;
   res.redirect("/books");
 };
-
-
-
-
