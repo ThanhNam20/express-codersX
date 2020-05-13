@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 var shortid = require("shortid");
 var db = require("./db");
+var mongoose = require("mongoose");
+
+mongoose.connect(process.env.MONGO_URL);
+
 
 var bookRoute = require("./routes/book.route.js");
 var userRoute = require("./routes/user.route.js");
