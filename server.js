@@ -5,7 +5,7 @@ var shortid = require("shortid");
 var db = require("./db");
 var mongoose = require("mongoose");
 var env = require('dotenv');
-var port = 8080;
+var port = process.env.PORT || 8080;
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
 var bookRoute = require("./routes/book.route.js");
