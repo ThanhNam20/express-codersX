@@ -13,6 +13,9 @@ var userRoute = require("./routes/user.route.js");
 var transactionRoute = require("./routes/transaction.route.js");
 var authRoute = require("./routes/auth.route.js");
 var cartRoute = require("./routes/cart.route.js");
+var apiAuthRoute = require("./api/routes/auth.route");
+var apiBookRoute = require("./api/routes/book.route");
+var apiTranRoute = require("./api/routes/transaction.route");
 
 var authMiddileware = require("./middleware/auth.middleware.js");
 var adminMiddleware = require("./middleware/isAdmin.middleware.js");
@@ -46,7 +49,9 @@ app.use("/users", authMiddileware.requireAuth, userRoute);
 app.use("/transactions", authMiddileware.requireAuth, transactionRoute);
 app.use("/auth", authRoute, adminMiddleware.isAdmin(true));
 app.use("/cart", authMiddileware.requireAuth, cartRoute);
-
+app.use("/api/auth", apiAuthRoute);
+app.use("/api/books",apiBookRoute);
+app.use("/api/transactions", apiTranRoute);
 app.use(express.static("public"));
 // listen for requests :)
 const listener = app.listen(port,() => {
