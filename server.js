@@ -1,11 +1,12 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 var shortid = require("shortid");
 var db = require("./db");
 var mongoose = require("mongoose");
-
-mongoose.connect(process.env.MONGO_URL);
-
+var env = require('dotenv');
+var port = 8080;
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
 var bookRoute = require("./routes/book.route.js");
 var userRoute = require("./routes/user.route.js");
@@ -43,12 +44,11 @@ app.get("/cookies", (req, res, next) => {
 app.use("/books", bookRoute);
 app.use("/users", authMiddileware.requireAuth, userRoute);
 app.use("/transactions", authMiddileware.requireAuth, transactionRoute);
-app.use("/auth", authRoute, adminMiddleware.isAdmin);
+app.use("/auth", authRoute, adminMiddleware.isAdmin(true));
 app.use("/cart", authMiddileware.requireAuth, cartRoute);
 
 app.use(express.static("public"));
-
 // listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
+const listener = app.listen(port,() => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });

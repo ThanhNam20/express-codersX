@@ -2,24 +2,17 @@ var db = require("../db");
 const shortid = require("shortid");
 var Book = require("../models/book.model");
 
-module.exports.index = (req, res) => {
-  Book.find().then(function(books) {
-    res.render("books/index", {
-      books: books
-    });
-  });
+module.exports.index = async(req, res) => {
+  var books = await Book.find();
+  res.render('books/index', {
+    books: books
+  })
 };
 
-module.exports.create = (req, res) => {
-  res.render("books/create");
-};
-
-module.exports.detele = (req, res) => {
+module.exports.detele = async (req, res) => {
   var id = req.params.id;
-  db.get("books")
-    .remove({ id: id })
-    .write();
-  res.redirect("/books");
+  await Book.findByIdAndDelete(id);
+  res.redirect('/books');
 };
 
 module.exports.rename = (req, res) => {
@@ -27,33 +20,31 @@ module.exports.rename = (req, res) => {
   res.render("books/rename", { bookId }); // render ra biến bookid truyền vào trang rename
 };
 
-module.exports.postRename = (req, res) => {
+module.exports.postRename = async(req, res) => {
   var id = req.params.id;
-  var title = req.body.title;
-  db.get("books")
-    .find({ id: id })
-    .assign({ title: title })
-    .write();
+  await Book.findByIdAndUpdate(id, { title: req.body.title });
   res.redirect("/books");
+  await Book.save();
 };
 
-module.exports.add = (req, res) => {
-  req.body.id = shortid.generate();
-  db.get("books")
-    .push(req.body)
-    .write();
+module.exports.create = (req, res) => {
+  res.render("books/create");
+};
+
+module.exports.add = async(req, res) => {
+  const newBook = new Book(req.body);
+  await newBook.save();
   res.redirect("/books");
+  res.send(newBook);  
 };
 
 module.exports.addToCart = (req, res, next) => {
   var bookId = req.params.id;
   var sessionId = req.signedCookies.sessionId;
-
   if (!sessionId) {
     res.redirect("/books");
     return;
   }
-
   var count = db
     .get("sessions")
     .find({ id: sessionId })

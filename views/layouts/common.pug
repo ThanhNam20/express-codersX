@@ -13,9 +13,6 @@ html
           a.nav-item.nav-link(href='/books')| Books 
           a.nav-item.nav-link(href='/users') Users
           a.nav-item.nav-link(href='/cart') Cart
-          if user && user.isAdmin
-            a.nav-item.nav-link(href='/transactions') Transactions
-          else 
-            a.nav-item.nav-link.d-none(href='/transactions') Transactions
+          a.nav-item.nav-link(href='/transactions') Transactions
     .container.pt-5      
       block content

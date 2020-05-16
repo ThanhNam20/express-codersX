@@ -1,31 +1,36 @@
 var db = require("../db");  
 const shortid = require("shortid");
+var Transaction = require("../models/transaction.model");
+var Book = require("../models/book.model");
+var User = require("../models/user.model");
 
-module.exports.index = (req,res)=>{
+module.exports.index = async (req, res)=> {
+  var transactions = await Transaction.find();
   res.render("transactions/index",{
-    transactions: db.get("transactions").value()
+    transactions: transactions
   });
 }
 
-module.exports.create = (req,res)=>{
+module.exports.create = async (req, res) => {
+  var books = await Book.find();
+  var users = await User.find();
   res.render("transactions/create",{
-    books: db.get('books').value(),
-    users: db.get('users').value()
+    books:books,
+    users: users
   })
 }
 
-module.exports.postCreate = (req,res)=>{
+module.exports.postCreate = async(req,res)=>{
   req.body.isComplete = false;
-  req.body.id = shortid.generate();
-  db.get("transactions").push(req.body).write();
+  var trans = new Transaction(req.body);
+  await trans.save();
   res.redirect("/transactions");
+  res.send(trans);
 }
 
-module.exports.isComplete = (req,res)=>{
+module.exports.isComplete = async(req,res)=>{
   var id = req.params.id
-  db.get("transactions")
-    .find({ id: id })
-    .assign({ isComplete: true })
-    .write();
+  await Transaction.findByIdAndUpdate(id, { isComplete: true });
   res.redirect('/transactions')
+  await Transaction.save();
 }

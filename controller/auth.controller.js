@@ -4,26 +4,25 @@ var md5 = require("md5");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const sgMail = require("@sendgrid/mail");
+
+const User = require("../models/user.model");
 module.exports.register = (req, res, next) => {
   res.render("auth/register");
 };
 
-module.exports.saveRegister = (req, res, next) => {
-  req.body.id = shortid.generate();
+module.exports.saveRegister = async (req, res, next) => {
   req.body.randomNum = Math.floor(Math.random() * 1000);
-  bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-    db.get("users")
-      .push({
-        wrongLoginCount: 0,
-        id: req.body.id,
-        name: req.body.name,
-        email: req.body.email,
-        password: hash,
-        isAdmin: false,
-        avatarUrl:'https://api.adorable.io/avatars/100',
-      })
-      .write();
+  bcrypt.hash(req.body.password, saltRounds, async function (err, hash) {
+    const newUser = new User({
+      wrongLoginCount: 0,
+      name: req.body.name,
+      email: req.body.email,
+      password: hash,
+      isAdmin: false,
+      avatarUrl: "https://api.adorable.io/avatars/100",
+    });
     res.redirect("/auth/login");
+    await newUser.save();
   });
 };
 
@@ -31,29 +30,28 @@ module.exports.login = (req, res) => {
   res.render("auth/login");
 };
 
-module.exports.postLogin = (req, res) => {
+module.exports.postLogin = async (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
-  var user = db
-    .get("users")
-    .find({ email: email })
-    .value();
-
+  var user = await User.findOne({ email: email });
   if (!user) {
     res.render("auth/login", {
-      errors: ["User is not found!"]
+      errors: ["User is not found!"],
     });
   } else {
-    bcrypt.compare(req.body.password, user.password, function(err, result) {
+    bcrypt.compare(req.body.password, user.password, async function (
+      err,
+      result
+    ) {
       var wrongLoginCount = user.wrongLoginCount;
       if (result == false) {
         wrongLoginCount++;
-        db.get("users")
-          .find({ id: user.id })
-          .assign({ wrongLoginCount: wrongLoginCount })
-          .write();
+        await User.findByIdAndUpdate(user._id, {
+          wrongLoginCount: wrongLoginCount,
+        });
+
         res.render("auth/login", {
-          errors: ["Wrong password!"]
+          errors: ["Wrong password!"],
         });
         if (wrongLoginCount >= 3) {
           sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -64,12 +62,12 @@ module.exports.postLogin = (req, res) => {
             text:
               "Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!",
             html:
-              "<strong>Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!</strong>"
+              "<strong>Bạn đã nhập sai mật khẩu quá số lần quy định, tài khoản của bạn sẽ bị khóa 24h!!</strong>",
           };
           //ES6
           sgMail.send(msg).then(
             () => {},
-            error => {
+            (error) => {
               console.error(error);
 
               if (error.response) {
@@ -79,8 +77,8 @@ module.exports.postLogin = (req, res) => {
           );
         }
       } else {
-        res.cookie("userId", user.id, {
-          signed: true
+        res.cookie("userId", user._id, {
+          signed: true,
         });
         res.redirect("/");
       }

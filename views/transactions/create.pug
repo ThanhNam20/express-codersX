@@ -7,13 +7,13 @@ block content
         label( for = "users") Choose user:
         select.form-control(id = "users", name ="userId")
           each user in users
-            option(value = `${user.id}`)
+            option(value = `${user._id}`)
               span= user.name
 
         label( for = "books") Choose Book:
         select.form-control(id = "books", name ="bookId")
           each book in books
-            option(value = `${book.id}`)
+            option(value = `${book._id}`)
               span= book.title
 
       button.btn.btn-primary.mt-2 Create
